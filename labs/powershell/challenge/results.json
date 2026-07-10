@@ -1,0 +1,20 @@
+{
+    "public_ip": "Unable to retrieve",
+    "hosts": [
+        {
+            "hostname": "google.com",
+            "resolved_ip": "142.251.218.78",
+            "port_443": "Open"
+        },
+        {
+            "hostname": "github.com",
+            "resolved_ip": "140.82.116.4",
+            "port_443": "Open"
+        },
+        {
+            "hostname": "abs.database.com",
+            "resolved_ip": "DNS Lookup Failed",
+            "port_443": "Closed"
+        }
+    ]
+}
