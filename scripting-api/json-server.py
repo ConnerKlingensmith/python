@@ -6,11 +6,18 @@ class abchandler(BaseHTTPRequestHandler):
         length = int(self.headers.get("Content-Length", 0))
         body = self.rfile.read(length)    # data sent by client
         
-        data = json.loads(body)
-        response = {
-            "message": "hello " + data["servername"]
-        }
-        self.send_response(200)
+        try: 
+            data = json.loads(body)
+            response = {
+                "message": "hello " + data["servername"]
+            }
+            status = 200
+
+        except Exception:
+            response = "Invalid json"
+            status = 400
+
+        self.send_response(status)
         self.send_header("Content-Type", "application/json")
         self.end_headers()
 
