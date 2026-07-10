@@ -11,11 +11,11 @@ class abchandler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(b"welcome to the default root route")
         
-        elif self.path =="/walk":
+        elif self.path =="/app":
             self.send_response(200)
             self.send_header("Content-Type", "text/plain")
             self.end_headers()
-            self.wfile.write(b"welcome to the default walk route")
+            self.wfile.write(b"welcome to the app route")
 
         elif self.path == "/backend":
             self.send_response(200)
