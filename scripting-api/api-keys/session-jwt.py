@@ -26,25 +26,35 @@ def login():
         session["user"] = username
         session["sid"] = sid
 
-        return jsonify({"message": "Login Successful"}), 200
+        return jsonify({
+            "message": "Login Successful"
+        }), 200
 
-    return jsonify({"message": "Invalid Credentials"}), 401
+    return jsonify({
+        "message": "Invalid Credentials"
+    }), 401
 
 
 @app.route("/profile")
 def profile():
     sid = session.get("sid")
     if "user" not in session or sid not in VALID_SESSION_IDS:
-        return jsonify({"message": "Unauthorized"}), 401
+        return jsonify({
+            "message": "Unauthorized"
+        }), 401
 
-    return jsonify({"message": f"Welcome {session['user']}"})
+    return jsonify({
+        "message": f"Welcome {session['user']}"
+    })
 
 @app.route("/logout", methods=["POST"])
 def logout():
     sid = session.get("sid")
     VALID_SESSION_IDS.discard(sid)
     session.clear()
-    return jsonify({"message": "Logged Out"})
+    return jsonify({
+        "message": "Logged Out"
+        })
 
 if __name__ == "__main__":
     app.run(debug=True)
